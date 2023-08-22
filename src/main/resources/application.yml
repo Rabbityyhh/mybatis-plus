@@ -1,14 +1,12 @@
 spring:
-# 配置数据源信息
   datasource:
-  # 配置数据源类型
     type: com.zaxxer.hikari.HikariDataSource
-    # 配置连接数据库信息
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/study_test?characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai
     username: root
     password: 123456
 
+# 配置log 打印出对应的sql语句
 mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
