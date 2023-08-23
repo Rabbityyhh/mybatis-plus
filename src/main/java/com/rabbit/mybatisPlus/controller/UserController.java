@@ -2,6 +2,7 @@ package com.rabbit.mybatisPlus.controller;
 
 import com.rabbit.mybatisPlus.pojo.User;
 import com.rabbit.mybatisPlus.service.UserServiceCRUD;
+import lombok.val;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -10,7 +11,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.rabbit.mybatisPlus.service.UserService;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * 用户控制器
@@ -57,6 +60,19 @@ public class UserController {
     public void selectCount() {
         long count = userServiceCRUD.count();
         System.out.println(count);
+    }
+
+    @GetMapping("/selectByName")
+    public List<User> selectByName() {
+        Map<String, Object> map = new HashMap<>();
+        map.put("name", "rabbit");
+        return userServiceCRUD.listByMap(map);
+    }
+
+    @GetMapping("/insertBySelect")
+    public void insertBySelect() {
+
+        userServiceCRUD.insertBySelect();
     }
 
 }

@@ -5,6 +5,10 @@ import com.rabbit.mybatisPlus.pojo.User;
 
 /**
  * @author rabbit
+ * 继承service模式
  */
 public interface UserServiceCRUD extends IService<User> {
+
+    public void insertBySelect();
+
 }
