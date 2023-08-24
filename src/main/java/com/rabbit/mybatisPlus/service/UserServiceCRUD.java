@@ -11,4 +11,8 @@ public interface UserServiceCRUD extends IService<User> {
 
     public void insertBySelect();
 
+    public void insertUser();
+
+    public void deleteUsearByList();
+
 }

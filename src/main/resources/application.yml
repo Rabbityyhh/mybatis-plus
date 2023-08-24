@@ -10,3 +10,10 @@ spring:
 mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+#    全局配置，
+  global-config:
+    db-config:
+#      配置表前缀。就算实体类不使用 tableName注解，也会自动加上前缀
+      table-prefix: t_
+#      配置主键生成策略
+      id-type: assign_id

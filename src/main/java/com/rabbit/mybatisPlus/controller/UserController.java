@@ -75,4 +75,13 @@ public class UserController {
         userServiceCRUD.insertBySelect();
     }
 
+    @GetMapping("/insertUser2")
+    public void insertUser2() {
+        userServiceCRUD.insertUser();
+    }
+
+    @GetMapping("/deleteUsearByList")
+    public void deleteUsearByList() {
+        userServiceCRUD.deleteUsearByList();
+    }
 }
