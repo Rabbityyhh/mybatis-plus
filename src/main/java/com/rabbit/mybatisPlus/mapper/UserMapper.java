@@ -1,8 +1,13 @@
 package com.rabbit.mybatisPlus.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.rabbit.mybatisPlus.pojo.User;
+import com.rabbit.mybatisPlus.pojo.UserAndScore;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 
 /**
@@ -13,4 +18,7 @@ import org.apache.ibatis.annotations.Mapper;
  */
 @Mapper
 public interface UserMapper extends BaseMapper<User> {
+
+    Page<UserAndScore> userAndScoreList(@Param("page") Page<UserAndScore> page);
+
 }

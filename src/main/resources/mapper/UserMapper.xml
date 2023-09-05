@@ -3,4 +3,15 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.rabbit.mybatisPlus.mapper.UserMapper">
 
+    <select id="userAndScoreList" resultType="com.rabbit.mybatisPlus.pojo.UserAndScore">
+        SELECT
+            u.id,
+            u.name,
+            s.subject,
+            s.score
+        FROM uuuser u
+        Left Join score s ON u.id = s.user_id
+        WHERE s.score is not null
+    </select>
+
 </mapper>

@@ -1,6 +1,9 @@
 package com.rabbit.mybatisPlus.controller;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.rabbit.mybatisPlus.pojo.User;
+import com.rabbit.mybatisPlus.pojo.UserAndScore;
+import com.rabbit.mybatisPlus.service.PageService;
 import com.rabbit.mybatisPlus.service.UserServiceCRUD;
 import com.rabbit.mybatisPlus.service.UserServiceWrapper;
 import lombok.val;
@@ -34,6 +37,9 @@ public class UserController {
 
     @Autowired
     private UserServiceWrapper userServiceWrapper;
+
+    @Autowired
+    private PageService pageService;
 
     @GetMapping("/selectAll")
     public List<User> selectAll() {
@@ -97,5 +103,16 @@ public class UserController {
     @GetMapping("updateByWrapper")
     public void updateByWrapper() {
         userServiceWrapper.updateByWrapper();
+    }
+
+    @GetMapping("searchByPage")
+    public void searchByPage() {
+        pageService.searchByPage();
+    }
+
+    @GetMapping("customSqlByPage")
+    public Page<UserAndScore> customSqlByPage() {
+        Page<UserAndScore> userAndScores = pageService.customSqlByPage();
+        return userAndScores;
     }
 }
