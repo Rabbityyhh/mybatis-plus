@@ -2,6 +2,7 @@ package com.rabbit.mybatisPlus.controller;
 
 import com.rabbit.mybatisPlus.pojo.User;
 import com.rabbit.mybatisPlus.service.UserServiceCRUD;
+import com.rabbit.mybatisPlus.service.UserServiceWrapper;
 import lombok.val;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,6 +31,9 @@ public class UserController {
 
     @Autowired
     private UserServiceCRUD userServiceCRUD;
+
+    @Autowired
+    private UserServiceWrapper userServiceWrapper;
 
     @GetMapping("/selectAll")
     public List<User> selectAll() {
@@ -83,5 +87,15 @@ public class UserController {
     @GetMapping("/deleteUsearByList")
     public void deleteUsearByList() {
         userServiceCRUD.deleteUsearByList();
+    }
+
+    @GetMapping("wrapperSel")
+    public void wrapperSel() {
+        userServiceWrapper.queryUserByWrapper();
+    }
+
+    @GetMapping("updateByWrapper")
+    public void updateByWrapper() {
+        userServiceWrapper.updateByWrapper();
     }
 }
