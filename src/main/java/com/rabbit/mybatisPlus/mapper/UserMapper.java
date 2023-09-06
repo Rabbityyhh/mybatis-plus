@@ -1,4 +1,5 @@
 package com.rabbit.mybatisPlus.mapper;
+import java.util.Collection;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
@@ -20,5 +21,7 @@ import java.util.List;
 public interface UserMapper extends BaseMapper<User> {
 
     Page<UserAndScore> userAndScoreList(@Param("page") Page<UserAndScore> page);
+
+    int insertBatch(@Param("userCollection") Collection<User> userCollection);
 
 }

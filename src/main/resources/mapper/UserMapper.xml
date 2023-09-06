@@ -13,5 +13,16 @@
         Left Join score s ON u.id = s.user_id
         WHERE s.score is not null
     </select>
+    <insert id="insertBatch">
+        insert into uuuser(,name,age,
+        ,email,score,
+        is_delete)
+        values
+        <foreach collection="userCollection" item="item" separator=",">
+            (#{item.id,jdbcType=VARCHAR},#{item.name,jdbcType=VARCHAR},#{item.age,jdbcType=NUMERIC},
+            #{item.password,jdbcType=VARCHAR},#{item.email,jdbcType=VARCHAR},#{item.score,jdbcType=VARCHAR},
+            #{item.idDelete,jdbcType=VARCHAR})
+        </foreach>
+    </insert>
 
 </mapper>
