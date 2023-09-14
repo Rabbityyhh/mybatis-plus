@@ -36,9 +36,8 @@ public class UserService {
      */
     public void insertUser() {
         User user = new User();
-        user.setName("rabbit");
+        user.setName("ttttttttttttttttttt");
         user.setAge(18);
-        user.setEmail("ssssssss");
         int insert = userMapper.insert(user);
         System.out.println(insert);
         System.out.println(user.getId());
